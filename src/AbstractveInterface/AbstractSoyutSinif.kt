@@ -1,21 +1,25 @@
-package Kalitim
+package AbstractveInterface
 
-open class Calisan {
+
+
+abstract class Calisan {
 
     open var pozisyon : String = "Çalışan"
-    open fun calis(){
-        println("$pozisyon çalışmaya başladı")
-
+    abstract fun calis()
+    open fun soyutOlmayanMethod(){
+        println("Soyut olmayan method")
     }
 }
 
 open class Mudur: Calisan(){
     override var pozisyon: String = "Müdür"
-
-
-    override fun calis(){
+    override fun calis() {
         println("$pozisyon çalışmaya başladı ")
+    }
 
+
+    override fun soyutOlmayanMethod() {
+        println("Müdür soyut olmayan methodu override etti.")
     }
 
 }
@@ -88,15 +92,19 @@ fun main() {
     calisanlar[2] = Programci()
     calisanlar[3] = Pazarlamaci()*/
 
-    var calisanlar = Array<Calisan>(7){ Calisan() }
+    var calisanlar = Array<Calisan>(7){ SistemProgramci() }
 
-    calisanlar[0] = Calisan()//yukarı çevrim upcasting
+    calisanlar[0] = Pazarlamaci()//yukarı çevrim upcasting
     calisanlar[1] = Mudur()
     calisanlar[2] = Programci()
     calisanlar[3] = Pazarlamaci()
     calisanlar[4] = GenelMudur()
     calisanlar[5] = AnalizProgramci()
     calisanlar[6] = SistemProgramci()
+
+
+  
+
 
 
     //mesaiyeBasla(calisanlar)
@@ -108,7 +116,7 @@ fun main() {
 fun mesaiyeBasla(calisanlar: Array<Any>) {
     for (oankiCalisan in calisanlar){
 
-       if (oankiCalisan is Calisan){
+        if (oankiCalisan is Calisan){
             var calisan:Calisan = oankiCalisan
             calisan.calis()
 

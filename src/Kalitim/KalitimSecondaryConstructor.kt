@@ -24,7 +24,7 @@ open class Person2{
     }
 }
 
-class Ogretmen2 :Person2{
+class Ogretmen2 :Person3{
 
     var brans:String
     constructor(isim:String,yas:Int,isMan:Boolean,brans:String) : super(isim, yas, isMan){
@@ -41,13 +41,13 @@ class Ogretmen2 :Person2{
 fun main() {
 
 
-    var p1 = Person2("Emre",29,true)
+    var p1 = Person3("Emre",29,true)
     println(p1.toString())
 
-    var p2 = Person2("fatma",35)
+    var p2 = Person3("fatma",35)
     println(p2.toString())
 
-    var ogr1 = Ogretmen2("Mahmut",65,true,"tarih")
+    var ogr1 = Ogretmen3("Mahmut",65,true,"tarih")
     println(ogr1)
 }
 
